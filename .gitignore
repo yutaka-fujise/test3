@@ -1,6 +1,14 @@
+HEAD
 # Laravel
 /vendor
 .env
 
 # Docker MySQL data
+
+# Laravel
+/vendor
+.env
+
+# Docker MySQL data
+736e77ead89bfedc0a3874afc638f25852964118
 docker/mysql/data/
