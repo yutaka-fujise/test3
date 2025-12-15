@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #fafafa;
+    color: #555;
+}
+
+/* header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    color: #f29cc8;
+    font-weight: bold;
+}
+
+.header-actions button {
+    margin-left: 8px;
+}
+
+/* buttons */
+.btn-outline {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* layout */
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+}
+
+.card {
+    background: #fff;
+    width: 360px;
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+/* title */
+.page-title {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* form */
+.form-group.unit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.form-group input {
+    width: 180px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.form-group span {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* actions */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn-back {
+    background: #ddd;
+    border: none;
+    padding: 10px 26px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #a6c1ee, #fbc2eb);
+    border: none;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+}

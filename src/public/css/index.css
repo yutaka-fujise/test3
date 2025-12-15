@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+body {
+    background: #f7f7f7;
+    margin: 0;
+    color: #555;
+}
+
+/* header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    color: #f29cc8;
+    font-weight: bold;
+}
+
+.header-actions button {
+    margin-left: 8px;
+}
+
+/* buttons */
+.btn-outline {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #c8b6ff;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    margin-left: auto;
+}
+
+.btn-search {
+    background: #999;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+/* container */
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+/* summary */
+.summary {
+    display: flex;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.summary-item {
+    flex: 1;
+    text-align: center;
+}
+
+.label {
+    font-size: 14px;
+    color: #999;
+}
+
+.value {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.value span {
+    font-size: 14px;
+}
+
+.negative {
+    color: #e57373;
+}
+
+/* filter */
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* table */
+.table-wrapper {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    color: #c8b6ff;
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+td {
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+}
+
+.edit {
+    cursor: pointer;
+    color: #c8b6ff;
+}
+
+/* pagination */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination span {
+    display: inline-block;
+    margin: 0 6px;
+    padding: 6px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.pagination .active {
+    background: #c8b6ff;
+    color: #fff;
+}

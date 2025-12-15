@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+/* background */
+.bg {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* card */
+.card {
+    background: #fff;
+    width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* logo */
+.logo {
+    color: #f29cc8;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* title */
+.title {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.step {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 30px;
+}
+
+/* form */
+.form-group {
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+/* input + unit */
+.input-with-unit {
+    display: flex;
+    align-items: center;
+}
+
+.input-with-unit input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.input-with-unit span {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+/* button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    background: linear-gradient(to right, #a6c1ee, #fbc2eb);
+    margin-top: 10px;
+}
