@@ -1,0 +1,6 @@
+# Laravel
+/vendor
+.env
+
+# Docker MySQL data
+docker/mysql/data/
