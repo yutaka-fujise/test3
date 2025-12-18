@@ -4,29 +4,18 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGoalWeightToUsersTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+return new class extends Migration {
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->decimal('goal_weight', 5, 1)->nullable()->after('email');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('goal_weight');
         });
     }
-}
+};
