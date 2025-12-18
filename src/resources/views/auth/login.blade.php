@@ -32,7 +32,7 @@
       <button type="submit" class="btn">ログイン</button>
     </form>
 
-    <a href="#" class="link">アカウント作成はこちら</a>
+    <a href ="/register" class='link'>アカウント作成はこちら</a>
   </div>
 </div>
 
