@@ -47,24 +47,26 @@ Route::middleware('auth')->group(function () {
     Route::get('/weight_logs/search', [WeightLogController::class, 'search'])
         ->name('weight_logs.search');
 
-    Route::get('/weight_logs/create', [WeightLogController::class, 'create'])
-        ->name('weight_logs.create');
-
-    Route::post('/weight_logs/create', [WeightLogController::class, 'store'])
+    Route::post('/weight_logs', [WeightLogController::class, 'store'])
         ->name('weight_logs.store');
 
-    Route::get('/weight_logs/{weightLogId}', [WeightLogController::class, 'show'])
-        ->name('weight_logs.show');
+    // ✏️ 編集画面
+    Route::get('/weight_logs/{weightLog}/edit', [WeightLogController::class, 'edit'])
+        ->name('weight_logs.edit');
 
-    Route::post('/weight_logs/{weightLogId}/update', [WeightLogController::class, 'update'])
+    // 🔄 更新
+    Route::put('/weight_logs/{weightLog}', [WeightLogController::class, 'update'])
         ->name('weight_logs.update');
 
-    Route::post('/weight_logs/{weightLogId}/delete', [WeightLogController::class, 'destroy'])
-        ->name('weight_logs.delete');
+    // 🗑 削除
+    Route::delete('/weight_logs/{weightLog}', [WeightLogController::class, 'destroy'])
+        ->name('weight_logs.destroy');
 
+    // 🎯 目標体重
     Route::get('/weight_logs/goal_setting', [WeightLogController::class, 'editGoal'])
         ->name('weight_logs.goal_setting');
 
     Route::post('/weight_logs/goal_setting', [WeightLogController::class, 'updateGoal'])
         ->name('weight_logs.goal_update');
 });
+

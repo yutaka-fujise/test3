@@ -122,3 +122,7 @@ textarea {
     cursor: pointer;
     color: #ff6b6b;
 }
+
+.error {
+     color: red; font-size: 12px; 
+}

@@ -35,4 +35,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(WeightLog::class);
     }
+
+    public function weightTarget()
+    {
+    return $this->hasOne(\App\Models\WeightTarget::class);
+    }
 }

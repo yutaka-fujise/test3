@@ -171,3 +171,107 @@ td {
   background: #c8b6ff;
   color: #fff;
 }
+
+/* ===== modal ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+
+  display: none;                 /* 初期は非表示 */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  width: 520px;
+  max-height: 80vh;              /* ★重要 */
+  padding: 24px 28px;
+  border-radius: 16px;
+
+  /* 追加 */
+  overflow-y: auto;              /* ★重要 */
+}
+
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* ===== modal form layout ===== */
+
+.modal-content h2 {
+  margin-bottom: 24px;
+  font-size: 20px;
+  color: #444;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-content label {
+  font-size: 14px;
+  color: #666;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.modal-content textarea {
+  resize: none;
+  height: 80px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;   /* ★中央寄せ */
+  gap: 24px;                 /* ★ボタン間の余白 */
+  margin-top: 32px;
+}
+
+.modal-buttons button {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal-buttons button[type="button"] {
+  background: #eee;
+  color: #555;
+}
+
+.modal-buttons button[type="submit"] {
+  background: linear-gradient(90deg, #b8c6ff, #f3b6d7);
+  color: #fff;
+}
+
+.form-row {
+  margin-bottom: 16px;
+}
+
+.form-row label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-left: 6px;
+}
