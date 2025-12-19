@@ -10,9 +10,15 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterStep2Controller extends Controller
 {
+    // STEP2 表示
+    public function create()
+    {
+        return view('auth.register_step2');
+    }
+
+    // STEP2 登録処理
     public function store(RegisterStep2Request $request)
     {
-        // STEP1の情報を取得
         $step1 = session('register');
 
         if (!$step1) {
@@ -24,23 +30,21 @@ class RegisterStep2Controller extends Controller
             'name' => $step1['name'],
             'email' => $step1['email'],
             'password' => Hash::make($step1['password']),
-            'goal_weight' => $request->validated()['goal_weight'],
+            'goal_weight' => $request->goal_weight,
         ]);
 
         // ログイン
         Auth::login($user);
 
-        // 初期体重ログ作成
+        // 初期体重登録
         WeightLog::create([
             'user_id' => $user->id,
             'date' => now()->toDateString(),
-            'weight' => $request->validated()['current_weight'],
+            'weight' => $request->current_weight,
         ]);
 
-        // セッション削除
         session()->forget('register');
 
-        // 管理画面へ
         return redirect()->route('weight_logs.index');
     }
 }

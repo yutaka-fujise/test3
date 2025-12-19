@@ -18,20 +18,36 @@
 
     <p class="title">ログイン</p>
 
-    <form>
-      <div class="form-group">
-        <label>メールアドレス</label>
-        <input type="email" placeholder="メールアドレスを入力">
-      </div>
+    <form method="POST" action="{{ route('login') }}">
+      @csrf
 
-      <div class="form-group">
-        <label>パスワード</label>
-        <input type="password" placeholder="パスワードを入力">
-      </div>
+      @if ($errors->any())
+        <ul>
+        @foreach ($errors->all() as $error)
+        <li style="color:red">{{ $error }}</li>
+        @endforeach
+        </ul>
+      @endif
+
+    <div class="form-group">
+    <label>メールアドレス</label>
+    <input
+      type="email"
+      name="email"
+      value="{{ old('email') }}"
+      placeholder="メールアドレスを入力">
+    </div>
+
+    <div class="form-group">
+      <label>パスワード</label>
+      <input
+      type="password"
+      name="password"
+      placeholder="パスワードを入力">
+    </div>
 
       <button type="submit" class="btn">ログイン</button>
     </form>
-
     <a href ="/register" class='link'>アカウント作成はこちら</a>
   </div>
 </div>

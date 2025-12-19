@@ -12,9 +12,8 @@ use App\Http\Controllers\WeightLogController;
 */
 
 // STEP1 表示
-Route::get('/register/step1', function () {
-    return view('auth.register_step1');
-})->name('register.step1');
+Route::get('/register/step1', [RegisterStep1Controller::class, 'create'])
+    ->name('register.step1');
 
 // STEP1 送信
 Route::post('/register/step1', [RegisterStep1Controller::class, 'store'])
@@ -27,9 +26,8 @@ Route::post('/register/step1', [RegisterStep1Controller::class, 'store'])
 */
 
 // STEP2 表示
-Route::get('/register/step2', function () {
-    return view('auth.register_step2');
-})->name('register.step2');
+Route::get('/register/step2', [RegisterStep2Controller::class, 'create'])
+    ->name('register.step2');
 
 // STEP2 送信
 Route::post('/register/step2', [RegisterStep2Controller::class, 'store'])

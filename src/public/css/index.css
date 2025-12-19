@@ -1,151 +1,173 @@
+/* reset */
 * {
-    box-sizing: border-box;
-    font-family: "Noto Sans JP", sans-serif;
+  box-sizing: border-box;
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 body {
-    background: #f7f7f7;
-    margin: 0;
-    color: #555;
+  margin: 0;
+  color: #555;
+  background: linear-gradient(135deg, #f8cdda, #c8d9ff);
+  min-height: 100vh;
 }
 
 /* header */
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 16px 40px;
-    background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  background: #fff;
 }
 
 .logo {
-    font-size: 24px;
-    color: #f29cc8;
-    font-weight: bold;
+  font-size: 26px;
+  font-weight: bold;
+  color: #f29cc8;
 }
 
-.header-actions button {
-    margin-left: 8px;
+.header-actions {
+  display: flex;
+  gap: 12px;
 }
 
-/* buttons */
 .btn-outline {
-    border: 1px solid #ccc;
-    background: #fff;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: #c8b6ff;
-    color: #fff;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 20px;
-    margin-left: auto;
-}
-
-.btn-search {
-    background: #999;
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 /* container */
 .container {
-    max-width: 1000px;
-    margin: 30px auto;
+  max-width: 1000px;
+  margin: 40px auto 80px;
 }
 
 /* summary */
 .summary {
-    display: flex;
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
+  display: flex;
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  margin-bottom: 24px;
 }
 
 .summary-item {
-    flex: 1;
-    text-align: center;
+  flex: 1;
+  text-align: center;
 }
 
 .label {
-    font-size: 14px;
-    color: #999;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 8px;
 }
 
 .value {
-    font-size: 28px;
-    font-weight: bold;
+  font-size: 34px;
+  font-weight: bold;
+  color: #444;
 }
 
 .value span {
-    font-size: 14px;
+  font-size: 16px;
+  margin-left: 4px;
 }
 
-.negative {
-    color: #e57373;
+.value.negative {
+  color: #ff6b6b;
 }
 
 /* filter */
 .filter {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: #fff;
-    padding: 16px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 20px 24px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.filter input[type="date"] {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.btn-search {
+  background: #999;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  margin-left: auto;
+  background: linear-gradient(90deg, #b8c6ff, #f3b6d7);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 /* table */
 .table-wrapper {
-    background: #fff;
-    border-radius: 12px;
-    padding: 16px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 24px;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 th {
-    text-align: left;
-    color: #c8b6ff;
-    font-weight: normal;
-    padding-bottom: 10px;
+  text-align: left;
+  font-weight: normal;
+  color: #b39ddb;
+  padding-bottom: 12px;
 }
 
 td {
-    padding: 12px 0;
-    border-top: 1px solid #eee;
+  padding: 14px 0;
+  border-top: 1px solid #eee;
 }
 
 .edit {
-    cursor: pointer;
-    color: #c8b6ff;
+  color: #c8b6ff;
+  cursor: pointer;
 }
 
 /* pagination */
 .pagination {
-    text-align: center;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
 }
 
-.pagination span {
-    display: inline-block;
-    margin: 0 6px;
-    padding: 6px 10px;
-    border-radius: 50%;
-    cursor: pointer;
+.pagination span,
+.pagination a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  margin: 0 6px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #999;
 }
 
 .pagination .active {
-    background: #c8b6ff;
-    color: #fff;
+  background: #c8b6ff;
+  color: #fff;
 }

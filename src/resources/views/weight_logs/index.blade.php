@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-    
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Form</title>
+  <title>PiGLy</title>
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
 </head>
@@ -15,8 +14,14 @@
 <header class="header">
   <div class="logo">PiGLy</div>
   <div class="header-actions">
-    <button class="btn-outline">目標体重設定</button>
-    <button class="btn-outline">ログアウト</button>
+    <a href="{{ route('weight_logs.goal_setting') }}" class="btn-outline">
+      目標体重設定
+    </a>
+
+    <form method="POST" action="{{ route('logout') }}">
+      @csrf
+      <button class="btn-outline">ログアウト</button>
+    </form>
   </div>
 </header>
 
@@ -26,26 +31,40 @@
   <section class="summary">
     <div class="summary-item">
       <p class="label">目標体重</p>
-      <p class="value">45.0 <span>kg</span></p>
+      <p class="value">
+        {{ number_format($user->goal_weight, 1) }}
+        <span>kg</span>
+      </p>
     </div>
+
     <div class="summary-item">
       <p class="label">目標まで</p>
-      <p class="value negative">-1.5 <span>kg</span></p>
+      <p class="value {{ $diff > 0 ? 'negative' : '' }}">
+        {{ number_format($diff, 1) }}
+        <span>kg</span>
+      </p>
     </div>
+
     <div class="summary-item">
       <p class="label">最新体重</p>
-      <p class="value">46.5 <span>kg</span></p>
+      <p class="value">
+        {{ number_format($latestWeight, 1) }}
+        <span>kg</span>
+      </p>
     </div>
   </section>
 
   <!-- filter -->
-  <section class="filter">
-    <input type="date">
+  <form method="GET" action="{{ route('weight_logs.search') }}" class="filter">
+    <input type="date" name="from" value="{{ request('from') }}">
     <span>〜</span>
-    <input type="date">
+    <input type="date" name="to" value="{{ request('to') }}">
     <button class="btn-search">検索</button>
-    <button class="btn-primary">データ追加</button>
-  </section>
+
+    <a href="{{ route('weight_logs.create') }}" class="btn-primary">
+      データ追加
+    </a>
+  </form>
 
   <!-- table -->
   <section class="table-wrapper">
@@ -60,31 +79,30 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>2023/11/26</td>
-          <td>46.5kg</td>
-          <td>1200cal</td>
-          <td>00:15</td>
-          <td><span class="edit">✏️</span></td>
-        </tr>
-        <tr>
-          <td>2023/11/25</td>
-          <td>46.5kg</td>
-          <td>1200cal</td>
-          <td>00:15</td>
-          <td><span class="edit">✏️</span></td>
-        </tr>
+        @forelse ($logs as $log)
+          <tr>
+            <td>{{ \Carbon\Carbon::parse($log->date)->format('Y/m/d') }}</td>
+            <td>{{ number_format($log->weight, 1) }}kg</td>
+            <td>{{ $log->calorie }}cal</td>
+            <td>{{ $log->exercise_time }}</td>
+            <td>
+              <a href="{{ route('weight_logs.show', $log->id) }}" class="edit">
+                ✏️
+              </a>
+            </td>
+          </tr>
+        @empty
+          <tr>
+            <td colspan="5">データがありません</td>
+          </tr>
+        @endforelse
       </tbody>
     </table>
   </section>
 
   <!-- pagination -->
   <div class="pagination">
-    <span>&lt;</span>
-    <span class="active">1</span>
-    <span>2</span>
-    <span>3</span>
-    <span>&gt;</span>
+    {{ $logs->links() }}
   </div>
 
 </main>
