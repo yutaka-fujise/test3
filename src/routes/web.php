@@ -2,32 +2,38 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterStep1Controller;
+use App\Http\Controllers\RegisterStep2Controller;
 use App\Http\Controllers\WeightLogController;
 
 /*
 |--------------------------------------------------------------------------
-| 認証（Fortify）
+| 会員登録 STEP1
 |--------------------------------------------------------------------------
-| login / register は Fortify が提供
-| web.php には書かない
 */
 
+// STEP1 表示
+Route::get('/register/step1', function () {
+    return view('auth.register_step1');
+})->name('register.step1');
+
+// STEP1 送信
 Route::post('/register/step1', [RegisterStep1Controller::class, 'store'])
     ->name('register.step1.store');
 
 /*
 |--------------------------------------------------------------------------
-| 会員登録 STEP2（Fortify後）
+| 会員登録 STEP2
 |--------------------------------------------------------------------------
 */
 
+// STEP2 表示
 Route::get('/register/step2', function () {
     return view('auth.register_step2');
 })->name('register.step2');
 
+// STEP2 送信
 Route::post('/register/step2', [RegisterStep2Controller::class, 'store'])
     ->name('register.step2.store');
-
 
 /*
 |--------------------------------------------------------------------------
