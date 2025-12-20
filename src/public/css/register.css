@@ -89,3 +89,9 @@ input::placeholder {
     color: #5c7cfa;
     text-decoration: none;
 }
+
+.error {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 6px;
+}

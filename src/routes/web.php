@@ -5,6 +5,9 @@ use App\Http\Controllers\RegisterStep1Controller;
 use App\Http\Controllers\RegisterStep2Controller;
 use App\Http\Controllers\WeightLogController;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | 会員登録 STEP1
@@ -70,3 +73,11 @@ Route::middleware('auth')->group(function () {
         ->name('weight_logs.goal_update');
 });
 
+Route::post('/logout', function (Request $request) {
+    Auth::logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect('/login');
+})->name('logout');

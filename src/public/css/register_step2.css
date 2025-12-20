@@ -72,6 +72,7 @@ label {
 
 .input-with-unit span {
     margin-left: 8px;
+     white-space: nowrap;
     font-size: 14px;
     color: #666;
 }
@@ -91,4 +92,11 @@ input::placeholder {
     cursor: pointer;
     background: linear-gradient(to right, #a6c1ee, #fbc2eb);
     margin-top: 10px;
+}
+
+.error-text {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 6px;
+  text-align: left;
 }

@@ -21,14 +21,6 @@
     <form method="POST" action="{{ route('login') }}">
       @csrf
 
-      @if ($errors->any())
-        <ul>
-        @foreach ($errors->all() as $error)
-        <li style="color:red">{{ $error }}</li>
-        @endforeach
-        </ul>
-      @endif
-
     <div class="form-group">
     <label>メールアドレス</label>
     <input
@@ -36,6 +28,9 @@
       name="email"
       value="{{ old('email') }}"
       placeholder="メールアドレスを入力">
+      @error('email')
+      <p class="error">{{ $message }}</p>
+      @enderror
     </div>
 
     <div class="form-group">
@@ -44,6 +39,9 @@
       type="password"
       name="password"
       placeholder="パスワードを入力">
+      @error('password')
+      <p class="error">{{ $message }}</p>
+      @enderror
     </div>
 
       <button type="submit" class="btn">ログイン</button>

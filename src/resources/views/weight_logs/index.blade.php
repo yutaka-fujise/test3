@@ -14,10 +14,15 @@
   <div class="logo">PiGLy</div>
   <div class="header-actions">
     <a href="{{ route('weight_logs.goal_setting') }}" class="btn-outline">目標体重設定</a>
-    <form method="POST" action="{{ route('logout') }}">
-      @csrf
-      <button class="btn-outline">ログアウト</button>
-    </form>
+     <button
+    class="btn-outline"
+    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+    ログアウト
+  </button>
+
+  <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display:none;">
+    @csrf
+  </form>
   </div>
 </header>
 
