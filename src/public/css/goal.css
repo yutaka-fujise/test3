@@ -137,3 +137,9 @@ body {
     padding: 0 30px;
     border: none;
 }
+
+.error {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 6px;
+}
