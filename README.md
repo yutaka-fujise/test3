@@ -1,8 +1,11 @@
 # PiGLy（体重管理アプリ）
 
 ## 環境構築
-### Dockerビルド
+
+### Docker ビルド
+
 1. リポジトリをクローン
+
 ```bash
 git clone git@github.com:yutaka-fujise/test3.git
 ```
@@ -10,41 +13,34 @@ git clone git@github.com:yutaka-fujise/test3.git
 2.プロジェクトディレクトリへ移動
 cd pigly
 
-3.DockerDesktopアプリを起動
-4.Dockerコンテナをビルド・起動
+3.DockerDesktop アプリを起動
+4.Docker コンテナをビルド・起動
 docker-compose up -d --build
 
-※MacのM1・M2チップのPCの場合
+※Mac の M1・M2 チップの PC の場合
 no matching manifest for linux/arm64/v8 in the manifest list entries
 のエラーが表示され、ビルドできない場合があります。
 その際は docker-compose.yml の mysql サービスに
 以下の記述を追加してください。
 mysql:
-  platform: linux/x86_64
-  image: mysql:8.0.26
+platform: linux/x86_64
+image: mysql:8.0.26
 
-Laravel環境構築
+Laravel 環境構築
 
-1.PHPコンテナに入る
-docker-compose exec php bash
-2.パッケージをインストール
-composer install
-3. .env ファイルを作成
-cp .env.example .env
-4. .env に以下の環境変数を追加
+1.PHP コンテナに入る
+docker-compose exec php bash 2.パッケージをインストール
+composer install 3. .env ファイルを作成
+cp .env.example .env 4. .env に以下の環境変数を追加
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
 DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
-DB_PASSWORD=laravel_pass
-5.アプリケーションキーの作成
-php artisan key:generate
-6.マイグレーションの実行
-php artisan migrate
-7.シーディングの実行
-php artisan db:seed
-8.シンボリックリンク作成
+DB_PASSWORD=laravel_pass 5.アプリケーションキーの作成
+php artisan key:generate 6.マイグレーションの実行
+php artisan migrate 7.シーディングの実行
+php artisan db:seed 8.シンボリックリンク作成
 php artisan storage:link
 
 使用技術（実行環境）
@@ -68,7 +64,7 @@ php artisan storage:link
 ![weight_logsテーブル](img/weight_logs_table.png)
 ![weight_targetテーブル](img/weight_target_table.png)
 
-ER図
+ER 図
 ![ER図](img/ER.png)
 
 URL
@@ -78,4 +74,4 @@ URL
 補足
 ・認証機能には Laravel Fortify を使用しています。
 ・ログアウト処理は POST /logout にて実装し、・セッションを破棄後ログイン画面へ遷移します。
-・Docker環境下での再現性を重視した構成としています。
+・Docker 環境下での再現性を重視した構成としています。
