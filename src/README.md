@@ -1,81 +1,64 @@
-# PiGLy（体重管理アプリ）
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-## 環境構築
-### Dockerビルド
-1. リポジトリをクローン
-```bash
-git clone git@github.com:yutaka-fujise/test3.git
-```
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-2.プロジェクトディレクトリへ移動
-cd pigly
+## About Laravel
 
-3.DockerDesktopアプリを起動
-4.Dockerコンテナをビルド・起動
-docker-compose up -d --build
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-※MacのM1・M2チップのPCの場合
-no matching manifest for linux/arm64/v8 in the manifest list entries
-のエラーが表示され、ビルドできない場合があります。
-その際は docker-compose.yml の mysql サービスに
-以下の記述を追加してください。
-mysql:
-  platform: linux/x86_64
-  image: mysql:8.0.26
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel環境構築
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-1.PHPコンテナに入る
-docker-compose exec php bash
-2.パッケージをインストール
-composer install
-3. .env ファイルを作成
-cp .env.example .env
-4. .env に以下の環境変数を追加
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=laravel_db
-DB_USERNAME=laravel_user
-DB_PASSWORD=laravel_pass
-5.アプリケーションキーの作成
-php artisan key:generate
-6.マイグレーションの実行
-php artisan migrate
-7.シーディングの実行
-php artisan db:seed
-8.シンボリックリンク作成
-php artisan storage:link
+## Learning Laravel
 
-使用技術（実行環境）
-・PHP 8.x
-・Laravel 8.x
-・MySQL 8.0
-・Docker / Docker Compose
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-機能一覧
-・ユーザー登録・ログイン（Laravel Fortify）
-・体重・摂取カロリー・運動時間・運動内容の登録
-・登録データの編集・削除
-・体重ログの一覧表示
-・日付による検索機能
-・目標体重の設定・更新
-・目標体重までの差分表示
-・ログアウト機能
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-テーブル設計
-![usersテーブル](img/users_table.png)
-![weight_logsテーブル](img/weight_logs_table.png)
-![weight_targetテーブル](img/weight_target_table.png)
+## Laravel Sponsors
 
-ER図
-![ER図](img/ER.png)
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-URL
-・開発環境：http://localhost/
-・phpMyAdmin：http://localhost:8080/
+### Premium Partners
 
-補足
-・認証機能には Laravel Fortify を使用しています。
-・ログアウト処理は POST /logout にて実装し、・セッションを破棄後ログイン画面へ遷移します。
-・Docker環境下での再現性を重視した構成としています。
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
+
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
