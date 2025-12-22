@@ -33,8 +33,12 @@
     <div class="summary-item">
       <p class="label">目標体重</p>
       <p class="value">
-    {{ $targetWeight !== null ? number_format($targetWeight, 1) : '0.0' }}
-      <span>kg</span></p>
+        @if ($targetWeight !== null)
+        {{ number_format($targetWeight, 1) }}<span>kg</span>
+        @else
+        未設定
+        @endif
+      </p>
     </div>
 
     <div class="summary-item">

@@ -11,7 +11,7 @@ git clone git@github.com:yutaka-fujise/test3.git
 ```
 
 2.プロジェクトディレクトリへ移動
-cd pigly
+cd test3
 
 3.DockerDesktop アプリを起動
 4.Docker コンテナをビルド・起動
@@ -29,18 +29,25 @@ image: mysql:8.0.26
 Laravel 環境構築
 
 1.PHP コンテナに入る
-docker-compose exec php bash 2.パッケージをインストール
-composer install 3. .env ファイルを作成
-cp .env.example .env 4. .env に以下の環境変数を追加
+docker-compose exec php bash 
+2.パッケージをインストール
+composer install 
+3. .env ファイルを作成
+cp .env.example .env 
+4. .env に以下の環境変数を追加(11行目から16行目を以下に変更してください)
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
 DB_DATABASE=laravel_db
 DB_USERNAME=laravel_user
-DB_PASSWORD=laravel_pass 5.アプリケーションキーの作成
-php artisan key:generate 6.マイグレーションの実行
-php artisan migrate 7.シーディングの実行
-php artisan db:seed 8.シンボリックリンク作成
+DB_PASSWORD=laravel_pass 
+5.アプリケーションキーの作成
+php artisan key:generate 
+6.マイグレーションの実行
+php artisan migrate 
+7.シーディングの実行
+php artisan db:seed 
+8.シンボリックリンク作成
 php artisan storage:link
 
 使用技術（実行環境）
@@ -68,10 +75,11 @@ ER 図
 ![ER図](img/ER.png)
 
 URL
-・開発環境：http://localhost/
+・開発環境：http://localhost/login
 ・phpMyAdmin：http://localhost:8080/
 
 補足
 ・認証機能には Laravel Fortify を使用しています。
-・ログアウト処理は POST /logout にて実装し、・セッションを破棄後ログイン画面へ遷移します。
+・ログアウト処理は POST /logout にて実装し、セッションを破棄後ログイン画面へ遷移します。
 ・Docker 環境下での再現性を重視した構成としています。
+・初回登録後、目標体重と初期体重を設定すると管理画面に遷移します。

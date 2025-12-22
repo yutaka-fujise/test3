@@ -16,4 +16,8 @@ class RegisterStep1Controller extends Controller
         // STEP2へ遷移
         return redirect()->route('register.step2');
     }
+    public function create()
+    {
+    return view('auth.register_step1');
+    }
 }
