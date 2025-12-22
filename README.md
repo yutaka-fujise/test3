@@ -11,14 +11,17 @@ git clone git@github.com:yutaka-fujise/test3.git
 ```
 
 2.プロジェクトディレクトリへ移動
+
 cd test3
 
 3.DockerDesktop アプリを起動
 
 4.Docker コンテナをビルド・起動
+
 docker-compose up -d --build
 
 ※Mac の M1・M2 チップの PC の場合
+
 no matching manifest for linux/arm64/v8 in the manifest list entries
 のエラーが表示され、ビルドできない場合があります。
 
