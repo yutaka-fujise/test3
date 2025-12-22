@@ -32,6 +32,7 @@ mysql:
 platform: linux/x86_64
 image: mysql:8.0.26
 
+
 Laravel 環境構築
 
 1.PHP コンテナに入る
@@ -63,6 +64,7 @@ php artisan db:seed
 8.シンボリックリンク作成
 php artisan storage:link
 
+
 使用技術（実行環境）
 ・PHP 8.x
 
@@ -71,6 +73,7 @@ php artisan storage:link
 ・MySQL 8.0
 
 ・Docker / Docker Compose
+
 
 機能一覧
 ・ユーザー登録・ログイン（Laravel Fortify）
@@ -89,18 +92,22 @@ php artisan storage:link
 
 ・ログアウト機能
 
+
 テーブル設計
 ![usersテーブル](img/users_table.png)
 ![weight_logsテーブル](img/weight_logs_table.png)
 ![weight_targetテーブル](img/weight_target_table.png)
 
+
 ER 図
 ![ER図](img/ER.png)
+
 
 URL
 ・開発環境：http://localhost/login
 
 ・phpMyAdmin：http://localhost:8080/
+
 
 補足
 ・認証機能には Laravel Fortify を使用しています。
